@@ -33,3 +33,7 @@ if pred[0][0]>pred[0][1]:
  print("apple")
 else:
  print("orange")
+
+# --- if class > 2 use this to select the best socre prediction class
+# pred = np.argmax(pred[0])
+# --- output is 0~class_numbers
