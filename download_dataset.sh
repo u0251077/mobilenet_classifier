@@ -15,7 +15,11 @@ echo "Specified [$FILE]"
 URL=https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/$FILE.zip
 ZIP_FILE=./datasets/$FILE.zip
 TARGET_DIR=./datasets/$FILE/
+echo "1"
+mkdir "./datasets"
+echo "2"
 wget -N $URL -O $ZIP_FILE
-mkdir $TARGET_DIR
+echo "3"
 unzip $ZIP_FILE -d ./datasets/
+echo "4"
 rm $ZIP_FILE
