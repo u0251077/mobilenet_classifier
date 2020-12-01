@@ -6,6 +6,14 @@
 `$ git clone https://github.com/u0251077/mobilenet_classifier.git`
 
 ### create venv & install requirement
+- use poetry
+```
+poetry env use 3.6
+poetry install
+poetry run python xxx.py
+```
+
+- use virtualenv
 ```
 virtualenv venv --python=python3.6
 source ./venv/bin/activate
