@@ -50,3 +50,6 @@ pip install -r requirements.txt
 ### test 
 `python test.py`
 
+### speed time
+- rtx 2070 : 0.16s
+
