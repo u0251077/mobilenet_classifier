@@ -54,14 +54,10 @@ pip install -r requirements.txt
 - device : rtx 2070 
 
 1. network:mobilenet+fc1024
-speed time:
-0.16s
-0.009s FPS:111
+   - speed time: 0.009s / FPS:111
 
 2. network:mobilenet+fc2048+fc1024+fc512
-speed time:
-0.16s
-0.01s  FPS:100
+   - speed time: 0.01s / FPS:100
 
 
 
