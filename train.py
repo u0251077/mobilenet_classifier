@@ -15,6 +15,8 @@ from keras.models import Model
 from keras.applications import imagenet_utils
 from keras.layers import Dense,GlobalAveragePooling2D, Dropout
 from keras.applications import MobileNet
+from dlm.vgg19 import VGG19
+from dlm.imagenet_utils import preprocess_input
 from keras.applications.mobilenet import preprocess_input
 import numpy as np
 from keras.models import load_model
@@ -28,7 +30,9 @@ def prepare_image(file):
     img_array_expanded_dims = np.expand_dims(img_array, axis=0)
     return keras.applications.mobilenet.preprocess_input(img_array_expanded_dims)
 
-base_model=MobileNet(weights='imagenet',include_top=False) #imports the mobilenet model and discards the last 1000 neuron layer.
+#base_model=MobileNet(weights='imagenet',include_top=False) #imports the mobilenet model and discards the last 1000 neuron layer.
+base_model = VGG19(weights='imagenet', include_top=False)
+
 x=base_model.output
 x=GlobalAveragePooling2D()(x)
 x=Dense(2048,activation='relu')(x) #we add dense layers so that the model can learn more complex functions and classify for better results.
@@ -46,14 +50,14 @@ for layer in model.layers[20:]:
     layer.trainable=True
 train_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) #included in our dependencies
 eval_datagen= ImageDataGenerator(preprocessing_function=preprocess_input)
-train_generator=train_datagen.flow_from_directory('/home/c95lpy/project/mobilenet_classifier/datasets/apple2orange_train',
+train_generator=train_datagen.flow_from_directory('./datasets/apple2orange_train',
                                                  target_size=(224,224),
                                                  color_mode='rgb',
                                                  batch_size=32,
                                                  class_mode='categorical',
                                                  shuffle=True)
 
-eval_generator=eval_datagen.flow_from_directory('/home/c95lpy/project/mobilenet_classifier/datasets/apple2orange_eval',
+eval_generator=eval_datagen.flow_from_directory('./datasets/apple2orange_eval',
                                                  target_size=(224,224),
                                                  color_mode='rgb',
                                                  batch_size=32,
