@@ -15,8 +15,8 @@ from keras.models import Model
 from keras.applications import imagenet_utils
 from keras.layers import Dense,GlobalAveragePooling2D, Dropout
 from keras.applications import MobileNet
-from dlm.vgg19 import VGG19
-from dlm.imagenet_utils import preprocess_input
+from dlmodel.vgg19 import VGG19
+from dlmodel.imagenet_utils import preprocess_input
 from keras.applications.mobilenet import preprocess_input
 import numpy as np
 from keras.models import load_model
