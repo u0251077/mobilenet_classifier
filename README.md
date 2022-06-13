@@ -17,7 +17,7 @@ poetry run python xxx.py
 ```
 virtualenv venv --python=python3.6
 source ./venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 ### download the datasets
